@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
+import android.graphics.Paint;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -276,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
             Surface imageReaderSurface = imageReader.getSurface();
             captureRequestBuilder.addTarget(imageReaderSurface);
 
+            //cameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession.StateCallback() {
             cameraDevice.createCaptureSession(Arrays.asList(imageReaderSurface), new CameraCaptureSession.StateCallback() {
                 @Override
                 public void onConfigured(@NonNull CameraCaptureSession cameraCaptureSession) {
@@ -398,10 +400,4 @@ public class MainActivity extends AppCompatActivity {
         mBackgroundThread.start();
         mBackgroundHandler = new Handler(mBackgroundThread.getLooper());
     }
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 }

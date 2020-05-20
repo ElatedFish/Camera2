@@ -6,14 +6,6 @@
 
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, "Camera2Demo", __VA_ARGS__)
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_example_camera_MainActivity_stringFromJNI(
-        JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
-}
-
 extern "C" JNIEXPORT void JNICALL Java_com_example_camera_JNIUtils_JNIRGBADisplay(
         JNIEnv *env, jclass obj, jobject src, jint srcWidth, jint srcHeight, jobject surface) {
 
